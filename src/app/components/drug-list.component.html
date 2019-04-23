@@ -1,0 +1,28 @@
+<ul class="list" id="list">
+    <!-- <li *ngFor="let drug of list; let i = index;"><a [attr.data-index]="i" href="javascript:void(0);" (click)="notify($event)" hm-tap="onHammer">{{drug.name}}<span class="quantity">{{drug.quantity}}</span></a></li> -->
+    <li *ngFor="let drug of drugs; let i = index;">
+        <a [attr.data-index]="i" href="javascript:void(0);" (panright)="onPanRight($event)" (panleft)="onPanLeft($event)" class="drugname" (click)="populateDrugs()">
+            {{drug.med_name}}<span class="quantity">{{quantity}}</span>
+        </a>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange" (panright)="onDrag($event)" (panleft)="onDrag($event)">
+        </div>
+        <span class="filler"></span>
+    </li>
+</ul>
+<script>
+    
+  
+    // create a simple instance
+    // by default, it only adds horizontal recognizers
+   
+</script>
+<!-- <div class="modal-popup" id="modal-popup" (click)="hidePopup($event)">
+    <div class="modal-content">
+        <button (click)="increment()"><img src="assets/images/plus.png" alt=""></button>
+        <input type="text" value={{quantity}} />
+        <button (click)="decrement()"><img src="assets/images/minus.png" alt=""></button>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="ddOverlay"></div> -->

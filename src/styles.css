@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; overflow: hidden; }
+body { margin: 0; padding:0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.no-padding {
+    padding: 0;
+}
+
+a, a:focus {
+    text-decoration: none;
+    
+}
+
+ul, ul li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background: #eaeaee;
+    /* padding: 10px; */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card {
+    display: block;
+    min-height: 20px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.content {
+    padding: 10px 10px 0 10px;;
+}
+
+.back {
+    font-size: 20px;
+    text-align: left;
+    padding-left: 5px;
+    margin: 5px 0;
+}
+
+
+
+
+.tab-component .tabs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tab-component .tabs input {
+    display: none;
+}
+
+.tab-component .tabs label {
+    flex-grow: 1;
+    margin: 0 0 -1px;
+    /* padding: 10px; */
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    color: #999;
+    border: 1px solid transparent;
+}
+
+.tab-component .tabs input:checked + label {
+    color: #424242;
+    font-weight: 500;
+}
+
+section {
+    display: none;
+}
+
+section.hide {
+    display: none;
+}
+
+.tab-component #tab1:checked #tab1-content,
+.tab-component #tab2:checked #tab2-content,
+.tab-component #tab3:checked #tab3-content,
+.tab-component #tab4:checked #tab4-content, 
+.tab-component #tab5:checked #tab5-content,
+.tab-component #tab6:checked #tab6-content {
+	  display: block;
+}
+
+#tab1-content {
+    display: block;
+}
+
+.tab-content li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: 300;
+    color: #424242;
+    text-transform: capitalize; 
+    border-bottom: 1px solid #e7e7e7;
+}
+
+ .tab-content li a span {
+    float: right;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}

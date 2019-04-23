@@ -1,0 +1,115 @@
+body {
+    font-size: 20px;
+    font-family: roboto;
+}
+
+.login-page {
+    min-height: 100vh;
+    background: rgba(49,64,160,1);
+    background: -moz-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(49,64,160,1)), color-stop(100%, rgba(0,151,136,1)));
+    background: -webkit-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    background: -o-linear-gradient(top,     rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    background: -ms-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    background: linear-gradient(to bottom, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3140a0', endColorstr='#009788', GradientType=0 );
+}
+
+.form-holder {
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+}
+
+.brand {
+    width: 100%;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    margin-left: 0;
+    text-align: center;
+}
+
+.brand h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #fff;
+}
+
+img {
+    width: 100px;
+    margin: 0 auto;
+}
+
+/* .brand .text {
+    font-size: 30px;
+    color: #fff;
+} */
+
+/* .login-form {
+    width: 250px;
+    position: fixed;
+    bottom: 25%;
+    left: 50%;
+    margin-left: -125px;
+} */
+
+input {
+    width: 80%;
+    text-align: left;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #cccccc38;
+}
+
+.user_credential {
+    color:#ffffff;
+}
+
+input.user_credential::-webkit-input-placeholder {
+    color: #ddd;
+}
+
+button {
+    width: 100%;
+    color: rgba(49,64,160,1);
+    text-align: center;
+    font-weight: 500;
+}
+
+.loginButton {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background-color:#fafafa;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#313fa0;
+	font-family:Arial;
+	font-size:15px;
+	font-weight: 700;
+	padding:10px 20px;
+    text-decoration:none;
+    margin-top: 15px;
+}
+.loginButton:hover {
+	background-color:#e8e7e7;
+}
+.loginButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .login-page {
+        width: 500px;
+    }
+
+}
