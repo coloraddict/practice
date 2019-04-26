@@ -19,8 +19,39 @@ ul, ul li {
     margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 5px 0;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+h1 {
+    font-family: "Roboto Light";
+    font-size: 25px;    
+}
+
+h2 {
+    font-family: "Roboto Light";
+    font-size: 20px;  
+}
+
+h3 {
+    font-family: "Roboto";
+    font-size: 15px;  
+}
+
+h4 {
+    font-family: "Roboto";
+    font-size: 12px;  
+}
+
+h5 {
+    font-family: "Roboto Medium";
+    font-size: 10px;  
+}
+
 .container {
-    background: #eaeaee;
+    background: #ECEFF1;
     /* padding: 10px; */
     overflow: hidden;
     box-sizing: border-box;
@@ -31,13 +62,13 @@ ul, ul li {
     min-height: 20px;
     padding: 10px;
     background: #fff;
-    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.5);
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .content {
-    padding: 10px 10px 0 10px;;
+    padding: 5px 5px 0 5px;
 }
 
 .back {

@@ -14,4 +14,8 @@ export class DataService {
     getMedicines(){
         return this.http.get(this.baseUrl + 'medicines/read.php');
     }
+
+    getArea(){
+        return this.http.get(this.baseUrl + 'area/read.php');
+    }
 }
