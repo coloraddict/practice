@@ -19,8 +19,39 @@ ul, ul li {
     margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 5px 0;
+    font-weight: normal;
+    text-shadow: none;
+}
+
+h1 {
+    font-family: "Roboto Light";
+    font-size: 25px;    
+}
+
+h2 {
+    font-family: "Roboto Light";
+    font-size: 20px;  
+}
+
+h3 {
+    font-family: "Roboto";
+    font-size: 15px;  
+}
+
+h4 {
+    font-family: "Roboto";
+    font-size: 12px;  
+}
+
+h5 {
+    font-family: "Roboto Medium";
+    font-size: 10px;  
+}
+
 .container {
-    background: #eaeaee;
+    background: #ECEFF1;
     /* padding: 10px; */
     overflow: hidden;
     box-sizing: border-box;
@@ -31,13 +62,13 @@ ul, ul li {
     min-height: 20px;
     padding: 10px;
     background: #fff;
-    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.5);
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .content {
-    padding: 10px 10px 0 10px;;
+    padding: 5px 5px 0 5px;
 }
 
 .back {
@@ -50,18 +81,19 @@ ul, ul li {
 
 
 
-.tab-component .tabs {
+.tab-container .tabs {
     display: flex;
     flex-direction: row;
     width: 100%;
     margin: 0 auto;
 }
 
-.tab-component .tabs input {
+.tab-container .tabs input {
     display: none;
 }
 
-.tab-component .tabs label {
+.tab-container .tabs label {
+    padding: 10px 0 15px 0;
     flex-grow: 1;
     margin: 0 0 -1px;
     /* padding: 10px; */
@@ -72,7 +104,7 @@ ul, ul li {
     border: 1px solid transparent;
 }
 
-.tab-component .tabs input:checked + label {
+.tab-container .tabs input:checked + label {
     color: #424242;
     font-weight: 500;
 }
@@ -85,16 +117,16 @@ section.hide {
     display: none;
 }
 
-.tab-component #tab1:checked #tab1-content,
-.tab-component #tab2:checked #tab2-content,
-.tab-component #tab3:checked #tab3-content,
-.tab-component #tab4:checked #tab4-content, 
-.tab-component #tab5:checked #tab5-content,
-.tab-component #tab6:checked #tab6-content {
+.tab-container #tab1:checked #tab1-content,
+.tab-container #tab2:checked #tab2-content,
+.tab-container #tab3:checked #tab3-content,
+.tab-container #tab4:checked #tab4-content, 
+.tab-container #tab5:checked #tab5-content,
+.tab-container #tab6:checked #tab6-content {
 	  display: block;
 }
 
-#tab1-content {
+.tab-container #tab1-content {
     display: block;
 }
 
@@ -108,7 +140,7 @@ section.hide {
     border-bottom: 1px solid #e7e7e7;
 }
 
- .tab-content li a span {
+.tab-content li a span {
     float: right;
 }
 
