@@ -73,12 +73,12 @@ export class LandingPage implements OnInit{
 		var footerHeight = document.getElementsByClassName('footer-container')[0].clientHeight;
 		var bodyHeight = document.body.clientHeight;
 
-		var drugListHeight = bodyHeight - (pageHeaderHeight + tabContainerHeight + footerHeight) - 50;
+		// var drugListHeight = bodyHeight - (pageHeaderHeight + tabContainerHeight + footerHeight) - 290;
 		
-		var list = document.querySelectorAll('.list');
-		for(var i=0; i<list.length; i++){
+		// var list = document.querySelectorAll('.list');
+		// for(var i=0; i<list.length; i++){
 			// list[i].style.height =  drugListHeight + 'px';
-		}
+		// }
 		// document.getElementsByClassName('list').style.height = drugListHeight + 'px';
 	}
 	

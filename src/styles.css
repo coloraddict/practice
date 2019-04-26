@@ -50,18 +50,19 @@ ul, ul li {
 
 
 
-.tab-component .tabs {
+.tab-container .tabs {
     display: flex;
     flex-direction: row;
     width: 100%;
     margin: 0 auto;
 }
 
-.tab-component .tabs input {
+.tab-container .tabs input {
     display: none;
 }
 
-.tab-component .tabs label {
+.tab-container .tabs label {
+    padding: 10px 0 15px 0;
     flex-grow: 1;
     margin: 0 0 -1px;
     /* padding: 10px; */
@@ -72,7 +73,7 @@ ul, ul li {
     border: 1px solid transparent;
 }
 
-.tab-component .tabs input:checked + label {
+.tab-container .tabs input:checked + label {
     color: #424242;
     font-weight: 500;
 }
@@ -85,16 +86,16 @@ section.hide {
     display: none;
 }
 
-.tab-component #tab1:checked #tab1-content,
-.tab-component #tab2:checked #tab2-content,
-.tab-component #tab3:checked #tab3-content,
-.tab-component #tab4:checked #tab4-content, 
-.tab-component #tab5:checked #tab5-content,
-.tab-component #tab6:checked #tab6-content {
+.tab-container #tab1:checked #tab1-content,
+.tab-container #tab2:checked #tab2-content,
+.tab-container #tab3:checked #tab3-content,
+.tab-container #tab4:checked #tab4-content, 
+.tab-container #tab5:checked #tab5-content,
+.tab-container #tab6:checked #tab6-content {
 	  display: block;
 }
 
-#tab1-content {
+.tab-container #tab1-content {
     display: block;
 }
 
@@ -108,7 +109,7 @@ section.hide {
     border-bottom: 1px solid #e7e7e7;
 }
 
- .tab-content li a span {
+.tab-content li a span {
     float: right;
 }
 

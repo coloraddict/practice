@@ -40,7 +40,7 @@
         </div>
     </div>
     
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-xs-12 content tab-container">
             <div class="card">
                 <div class="tab-component">
@@ -66,11 +66,32 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <div class="row">
-        <div class="col-xs-12 content drug-list-container" id="tab-content">
+        <div class="col-xs-12 content tab-container" id="tab-content">
             <div class="card">
+                    <div class="tab-component">
+                        <div class="tabs">
+                            <input id="tab1" type="radio" name="tabs" checked="checked" />
+                            <label for="tab1" (click)="openTab($event);">Mon</label>
+                                
+                            <input id="tab2" type="radio" name="tabs" />
+                            <label for="tab2" (click)="openTab($event);">Tue</label>
+                                
+                            <input id="tab3" type="radio" name="tabs" />
+                            <label for="tab3" (click)="openTab($event);">Wed</label>
+                                
+                            <input id="tab4" type="radio" name="tabs" />
+                            <label for="tab4" (click)="openTab($event);">Thu</label>
+                            
+                            <input id="tab5" type="radio" name="tabs" />
+                            <label for="tab5" (click)="openTab($event);">Fri</label>
+                            
+                            <input id="tab6" type="radio" name="tabs" />
+                            <label for="tab6" (click)="openTab($event);">Sat</label>
+                        </div>
+                    </div>
                 <div class="tab-content">
                     <section id="tab1-content" class="active">
                         <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
