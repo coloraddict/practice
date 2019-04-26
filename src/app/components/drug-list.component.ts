@@ -116,7 +116,11 @@ export class DrugList implements OnDestroy {
 	}
 
 	onDrag($event) {
-        // $event.stopPropagation();
+		this.selectedElement = $event.target.parentNode.parentNode.querySelector('.quantity');
+		this.quantity = this.selectedElement.firstChild.nodeValue;
+		this.modifierStatus =! this.modifierStatus;
+		this.openModifier.emit({event: this.modifierStatus, quantity: this.quantity});
+		$event.stopPropagation();
     }
 
 }
