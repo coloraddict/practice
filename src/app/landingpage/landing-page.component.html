@@ -24,7 +24,17 @@
     <div class="row">
         <div class="col-xs-12 content">
             <div class="card">
-                <div class="row">
+                <app-dropdown [list]="distributors" [label]="distributor_label"></app-dropdown>
+                <hr>
+                <app-dropdown [list]="locations" [label]="location_label"></app-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 content">
+            <div class="card">
+                <!-- <div class="row">
                     <div class="col-xs-12">
                         <h3>Location</h3>
                         <div class="location">
@@ -39,8 +49,8 @@
                     </div>
                 </div>
                <hr>
-               <br>
-                <div class="row">
+               <br> -->
+                <!-- <div class="row">
                     <div class="col-xs-12">
                         <div class="client">
                             <h3>Doctor</h3>
@@ -69,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="clearfix"></div>
                 <p>&nbsp;</p>

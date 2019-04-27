@@ -17,7 +17,7 @@ export class DrugList implements OnDestroy {
 	@Output() result = new EventEmitter<any>();
 	@Output() openModifier = new EventEmitter<any>();
 
-	private drugs: any = [];
+	drugs: any = [];
 
     total = 0;
     dataIndex;
@@ -32,7 +32,7 @@ export class DrugList implements OnDestroy {
 	}
 
 	ngOnInit(){
-		let drugs = this.dataService.getMedicines().subscribe(
+		let drugsobj = this.dataService.getMedicines().subscribe(
 			(data) => {
 				this.drugs = data['records'];
 				console.log(this.drugs[0].med_name);
@@ -121,6 +121,8 @@ export class DrugList implements OnDestroy {
 		this.modifierStatus =! this.modifierStatus;
 		this.openModifier.emit({event: this.modifierStatus, quantity: this.quantity});
 		$event.stopPropagation();
-    }
+	}
+	
+	openTab($evt){}
 
 }
