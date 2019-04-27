@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginPage } from './login/login-page.component';
 import { LandingPage } from './landingpage/landing-page.component';
 import { DrugList } from './components/drug-list.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 import 'hammerjs';
 
 import {
@@ -32,7 +33,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 
 @NgModule({
   declarations: [ 
-    LoginPage, LandingPage, DrugList
+    LoginPage, LandingPage, DrugList, DropdownComponent
   ],
   imports: [RouterModule.forRoot(routes), CommonModule, HttpClientModule],
   exports: [RouterModule],

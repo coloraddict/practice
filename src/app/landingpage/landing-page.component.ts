@@ -3,6 +3,7 @@ import * as math from 'mathjs'
 import { DrugList } from '../components/drug-list.component';
 import { DataService } from '../services/data.service';
 
+
 @Component({
     selector: 'landing-page',
     templateUrl: 'landing-page.component.html',
@@ -23,6 +24,9 @@ export class LandingPage implements OnInit{
 	ddOverlay:boolean = false;
 
 	selectedElement;
+
+	distributor_label: string = 'Select Distributor';
+	location_label: string = 'Select Location';
 
 	count;
 
@@ -69,6 +73,12 @@ export class LandingPage implements OnInit{
 		this.total = $event;
 	}
 
+	increment(){
+
+	}
+
+	decrement(){}
+
 	ngOnInit(){
 		// var pageHeaderHeight = document.getElementsByClassName('page-header')[0].clientHeight;
 		// var tabContainerHeight = document.getElementsByClassName('tab-container')[0].clientHeight;
@@ -82,13 +92,13 @@ export class LandingPage implements OnInit{
 			// list[i].style.height =  drugListHeight + 'px';
 		// }
 		// document.getElementsByClassName('list').style.height = drugListHeight + 'px';
-		let area = this.dataService.getArea().subscribe(
-			(data) => {
-				this.locations = data['records'];
-				console.log(this.locations);
-			},
-			error => console.log(error)
-		);
+		// let area = this.dataService.getArea().subscribe(
+		// 	(data) => {
+		// 		this.locations = data['records'];
+		// 		console.log(this.locations);
+		// 	},
+		// 	error => console.log(error)
+		// );
 	}
 	
 	openModal($event){
