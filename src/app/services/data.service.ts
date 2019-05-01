@@ -18,4 +18,8 @@ export class DataService {
     getArea(){
         return this.http.get(this.baseUrl + 'area/read.php');
     }
+
+    getDistributors(){
+        return this.http.get(this.baseUrl + 'distributors/read.php');
+    }
 }

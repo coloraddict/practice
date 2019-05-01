@@ -52,7 +52,7 @@ h5 {
 
 .container {
     background: #ECEFF1;
-    /* padding: 10px; */
+    height: 100%;
     overflow: hidden;
     box-sizing: border-box;
 }

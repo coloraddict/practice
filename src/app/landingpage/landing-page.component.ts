@@ -33,7 +33,7 @@ export class LandingPage implements OnInit{
 	area: any;
 
     constructor(private dataService: DataService){
-      
+    //   alert(this.distributors.length);
     }
 
     toggleDropdown($event){
@@ -92,13 +92,13 @@ export class LandingPage implements OnInit{
 			// list[i].style.height =  drugListHeight + 'px';
 		// }
 		// document.getElementsByClassName('list').style.height = drugListHeight + 'px';
-		// let area = this.dataService.getArea().subscribe(
-		// 	(data) => {
-		// 		this.locations = data['records'];
-		// 		console.log(this.locations);
-		// 	},
-		// 	error => console.log(error)
-		// );
+		let area = this.dataService.getArea().subscribe(
+			(data) => {
+				this.locations = data['records'];
+				console.log(this.locations);
+			},
+			error => console.log(error)
+		);
 	}
 	
 	openModal($event){
@@ -130,6 +130,20 @@ export class LandingPage implements OnInit{
 		// 		this.total = math.subtract(this.total, this.drugs[$event.index].price).toFixed(2);
         //     }
         // }
+	}
+
+	onSelection(){
+		this.loadDistributors();
+	}
+
+	loadDistributors(){
+		let distributor = this.dataService.getDistributors().subscribe(
+			(data) => {
+				this.distributors = data['records'];
+				console.log(this.distributors);
+			},
+			error => console.log(error)
+		);
 	}
 
 }

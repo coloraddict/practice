@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,16 +9,28 @@ export class DropdownComponent implements OnInit {
 
   @Input() list:any;
   @Input() label:any;
+  @Output() locationChange = new EventEmitter();
+  isLocationChanged: boolean = false;
+  @ViewChild('dropdown') dropdown: ElementRef; 
 
   constructor() { }
 
   ngOnInit() {
-
-    console.log(this.list);
   }
 
   myFunction(){
-    document.getElementById('myDropdown').classList.toggle("show");
+    this.dropdown.nativeElement.classList.toggle('show');
+  }
+
+  onItemSelect($evt){
+    this.label = $evt.target.firstChild.nodeValue;
+    this.hideDropdownMenu();
+    this.isLocationChanged=false;
+    this.locationChange.emit(this.isLocationChanged);
+  }
+
+  hideDropdownMenu(){
+    this.dropdown.nativeElement.classList.remove('show');
   }
 
 }
