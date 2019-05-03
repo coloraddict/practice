@@ -2,6 +2,6 @@
   <button (click)="myFunction()" class="dropbtn">{{label}}</button>
   <i class="ico down-arrow"></i>
   <div class="dropdown-content" #dropdown>
-    <a href="javascript:void(0);" *ngFor="let item of list" (click)="onItemSelect($event)">{{item.area_name}}</a>
+    <a href="javascript:void(0);" *ngFor="let item of list" [attr.item_id]="item.id" (click)="onItemSelect($event)">{{item.item_name}}</a>
   </div>
 </div>

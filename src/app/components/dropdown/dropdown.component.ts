@@ -10,7 +10,7 @@ export class DropdownComponent implements OnInit {
   @Input() list:any;
   @Input() label:any;
   @Output() locationChange = new EventEmitter();
-  isLocationChanged: boolean = false;
+  isLocationChanged: any = [];
   @ViewChild('dropdown') dropdown: ElementRef; 
 
   constructor() { }
@@ -25,7 +25,10 @@ export class DropdownComponent implements OnInit {
   onItemSelect($evt){
     this.label = $evt.target.firstChild.nodeValue;
     this.hideDropdownMenu();
-    this.isLocationChanged=false;
+    this.isLocationChanged = {
+      status: false,
+      id: $evt.target.getAttribute("item_id")
+    }
     this.locationChange.emit(this.isLocationChanged);
   }
 

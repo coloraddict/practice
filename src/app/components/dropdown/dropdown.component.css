@@ -1,10 +1,12 @@
 .dropbtn {
+    width: 100%;
     background-color: transparent;
     color: #424242;
     padding: 10px;
     font-size: 12px;
     border: none;
     cursor: pointer;
+    text-align: left;
   }
   
   .dropbtn:hover, .dropbtn:focus {

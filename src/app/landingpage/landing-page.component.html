@@ -24,8 +24,19 @@
     <div class="row">
         <div class="col-xs-12 content">
             <div class="card">
-                <app-dropdown [list]="locations" [label]="location_label" (locationChange)="onSelection()"></app-dropdown>
-                <hr>
+                <app-dropdown [list]="locations" [label]="location_label" (locationChange)="onSelection($event)"></app-dropdown>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <app-radiobutton></app-radiobutton>
+                        </div>
+                        <div class="col-xs-6">
+                            <app-radiobutton></app-radiobutton>
+                        </div>
+                    </div>
+                </div>
+
                 <app-dropdown [list]="distributors" [label]="distributor_label"></app-dropdown>
                 <hr>
                 

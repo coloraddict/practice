@@ -19,7 +19,7 @@ export class DataService {
         return this.http.get(this.baseUrl + 'area/read.php');
     }
 
-    getDistributors(){
-        return this.http.get(this.baseUrl + 'distributors/read.php');
+    getDistributors(item_id){
+        return this.http.get(this.baseUrl + 'distributors/read.php/' + item_id);
     }
 }

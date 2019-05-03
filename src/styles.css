@@ -148,3 +148,11 @@ section.hide {
     float: none;
     clear: both;
 }
+
+@media only screen and (min-width: 500px) {
+    .container {
+        width: 500px;
+        margin: 0 auto;
+    }
+   
+}
