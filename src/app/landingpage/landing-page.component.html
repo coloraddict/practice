@@ -1,6 +1,3 @@
-<!-- <div class="brand">
-    <img src="assets/images/brand-logo.png" alt="">
-</div> -->
 <div class="overlay" *ngIf="ddOverlay"></div>
 <div class="container">
     <div class="row">
@@ -24,93 +21,23 @@
     <div class="row">
         <div class="col-xs-12 content">
             <div class="card">
-                <app-dropdown [list]="locations" [label]="location_label" (locationChange)="onSelection($event)"></app-dropdown>
-                
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <app-radiobutton></app-radiobutton>
-                        </div>
-                        <div class="col-xs-6">
-                            <app-radiobutton></app-radiobutton>
-                        </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <app-dropdown [list]="locations" [label]="location_label" (locationChange)="onSelection($event)"></app-dropdown>
                     </div>
                 </div>
-
-                <app-dropdown [list]="distributors" [label]="distributor_label"></app-dropdown>
-                <hr>
                 
+                <div class="row">
+                    <div class="col-xs-12">
+                        <app-radiogroup [options]="customers" (selectedRadio)="onOptionSelect($event)"></app-radiogroup>
+                    </div>
+                </div>
+                <app-dropdown [list]="distributors" [label]="distributor_label" *ngIf="isDistributorSelected"></app-dropdown>
+                <app-dropdown [list]="doctors" [label]="doctor_label" *ngIf="isDoctorSelected"></app-dropdown>
+                <hr>
             </div>
         </div>
     </div>
-
-    <!-- <div class="row">
-        <div class="col-xs-12 content">
-            <div class="card"> -->
-                <!-- <div class="row">
-                    <div class="col-xs-12">
-                        <h3>Location</h3>
-                        <div class="location">
-                            <div class="dropdown-component">
-                                <div id="dd" class="wrapper-dropdown-2 text-center"><a href="javascript:void(0);" id="locname" (click)="toggleDropdown($event)">Select</a>
-                                    <ul class="dropdown">
-                                        <li *ngFor="let location of locations" class="text-left"><a href="javascript:void(0);" [attr.value]="location" (click)="selectItem($event, 'loc')"><i class="icon-large"></i>{{location.area_name}}</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               <hr>
-               <br> -->
-                <!-- <div class="row">
-                    <div class="col-xs-12">
-                        <div class="client">
-                            <h3>Doctor</h3>
-                            <div class="dropdown-component">
-                                <div id="dd" class="wrapper-dropdown-2 text-center"><a href="javascript:void(0);" id="distname" (click)="toggleDropdown($event)">Select</a>
-                                    <ul class="dropdown">
-                                        <li *ngFor="let dist of distributors" class="text-left"><a href="javascript:void(0);" [attr.value]="dist" (click)="selectItem($event, 'dist')"><i class="icon-large"></i>{{dist}}</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <br>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="client">
-                            <h3>Distributor</h3>
-                            <div class="dropdown-component">
-                                <div id="dd" class="wrapper-dropdown-2 text-center"><a href="javascript:void(0);" id="distname" (click)="toggleDropdown($event)">Select</a>
-                                    <ul class="dropdown">
-                                        <li *ngFor="let dist of distributors" class="text-left"><a href="javascript:void(0);" [attr.value]="dist" (click)="selectItem($event, 'dist')"><i class="icon-large"></i>{{dist}}</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                
-                <!-- <div class="clearfix"></div>
-                
-            </div>
-        </div>
-    </div> -->
-
-    <!-- <drug-list></drug-list> -->
-
-    <!-- <div class="row">
-        <div class="col-xs-12 content footer-container" style="position: fixed; bottom: 0; left: 0;">
-            <div class="list-footer">
-                <div class="label">Total</div>
-                <div id="total" class="total">{{total}}</div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div> -->
 </div>
 
 <div class="modal-popup" id="modal-popup" (click)="hidePopup($event)">
@@ -120,5 +47,3 @@
         <button (click)="decrement()"><img src="assets/images/minus.png" alt=""></button>
     </div>
 </div>
-
-<!-- <div class="overlay" *ngIf="ddOverlay"></div> -->

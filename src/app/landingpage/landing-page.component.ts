@@ -25,15 +25,25 @@ export class LandingPage implements OnInit{
 
 	selectedElement;
 
+	isDistributorSelected: boolean= false;
+	isDoctorSelected: boolean = false;
+
 	distributor_label: string = 'Select Distributor';
 	location_label: string = 'Select Location';
+	doctor_label: string = 'Select Doctor';
+
 
 	count;
 
 	area: any;
 
+	customers = {
+		"group": "customers",
+		"layout": "horizontal",
+		"labels": ["Doctor", "Distributor"]
+	}
+
     constructor(private dataService: DataService){
-    //   alert(this.distributors.length);
     }
 
     toggleDropdown($event){
@@ -42,7 +52,6 @@ export class LandingPage implements OnInit{
 	}
 
 	selectItem($evt, p_str){
-		console.log(p_str);
 		$evt.target.parentNode.parentNode.parentNode.classList.remove("active");
 		if(p_str=='dist'){
 			document.querySelector("#distname").innerHTML = $evt.target.getAttribute("value");
@@ -80,18 +89,6 @@ export class LandingPage implements OnInit{
 	decrement(){}
 
 	ngOnInit(){
-		// var pageHeaderHeight = document.getElementsByClassName('page-header')[0].clientHeight;
-		// var tabContainerHeight = document.getElementsByClassName('tab-container')[0].clientHeight;
-		// var footerHeight = document.getElementsByClassName('footer-container')[0].clientHeight;
-		// var bodyHeight = document.body.clientHeight;
-
-		// var drugListHeight = bodyHeight - (pageHeaderHeight + tabContainerHeight + footerHeight) - 290;
-		
-		// var list = document.querySelectorAll('.list');
-		// for(var i=0; i<list.length; i++){
-			// list[i].style.height =  drugListHeight + 'px';
-		// }
-		// document.getElementsByClassName('list').style.height = drugListHeight + 'px';
 		let area = this.dataService.getArea().subscribe(
 			(data) => {
 				this.locations = data['records'];
@@ -102,38 +99,21 @@ export class LandingPage implements OnInit{
 	}
 	
 	openModal($event){
-		// this.dataIndex = $event.target.getAttribute("data-index");
-		// this.quantity=0;
-		// this.selectedElement = $event.target.querySelector('.quantity');
 		this.count = $event.quantity;
-		// this.clearHighlight();
-		// $event.target.classList.add("active-drug");
 		var modal = document.getElementById("modal-popup");
 		modal.classList.add("active");
 	}
 	
 	hidePopup($event){
-		// this.selectedElement.firstChild.nodeValue = this.quantity;
 		$event.target.classList.remove("active");
-		// document.querySelector(".")
 	}
 
 	modifyCount($event){
 		$event.element.firstChild.textContent = $event.quantity;
 		var total = document.getElementById('total').firstChild.textContent = '100';
-
-
-		// if($event.event){
-		// 	this.total = math.add(this.total, this.drugs[$event.index].price).toFixed(2);
-		// }else{
-		// 	if(this.total>0){
-		// 		this.total = math.subtract(this.total, this.drugs[$event.index].price).toFixed(2);
-        //     }
-        // }
 	}
 
 	onSelection($evt){
-		console.log();
 		this.loadDistributors($evt.id);
 	}
 
@@ -145,6 +125,20 @@ export class LandingPage implements OnInit{
 			},
 			error => console.log(error)
 		);
+	}
+
+	onOptionSelect($event){
+		if($event.toLowerCase()=='distributor') {
+			this.isDistributorSelected = true;
+			this.isDoctorSelected = false;
+		} else if ($event.toLowerCase()=='doctor'){
+			this.isDoctorSelected = true;
+			this.isDistributorSelected = false;
+		}
+	}
+
+	showSelectedList(){
+		
 	}
 
 }

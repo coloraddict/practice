@@ -1,4 +1,18 @@
-<p>
-  <input type="radio" id="{{id}}" name="radio-group" checked>
-  <label for="">Apple</label>
-</p>
+<!-- Template for Horizontal layout -->
+<div class="row" *ngIf="isHorizontalLayout">
+  <div class="col-xs-6 col-sm-6 col-md-6" *ngFor="let option of options.labels">
+    <p class="radio-group-holder">
+      <input type="radio" [attr.name]="options.group" [attr.value]="option" (click)="selectOption($event)">
+      <label for="">{{option}}</label>
+    </p>
+  </div>
+</div>
+
+<div class="row" *ngIf="!isHorizontalLayout">
+  <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let option of options.labels">
+    <p class="radio-group-holder">
+      <input type="radio" [attr.name]="options.group" [attr.value]="option" (click)="selectOption($event)">
+      <label for="">{{option}}</label>
+    </p>
+  </div>
+</div>

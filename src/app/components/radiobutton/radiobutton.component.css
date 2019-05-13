@@ -1,7 +1,15 @@
+.radio-group-holder {
+    position: relative;
+}
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
     position: absolute;
-    left: -9999px;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    width: 100%;
+    cursor: pointer;
 }
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label
