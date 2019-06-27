@@ -278,3 +278,9 @@
     background: transparent;
     border: none;
 }
+
+.btn-fat {
+    padding: 15px;
+    /* background: #f00; */
+    border: none;
+}

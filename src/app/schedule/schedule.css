@@ -1,0 +1,33 @@
+.cal-month-view .cal-day-cell {
+    min-height: auto;
+    height: 30px;
+    padding:0;
+}
+
+.cal-month-view .cal-cell-top {
+    min-height: auto;
+    padding: 0x;
+}
+
+.cal-month-view .cal-day-number {
+    margin: 0;
+    font-size: 12px;
+}
+
+.cal-month-view .cal-day-badge, .cal-month-view .cal-event {
+    display: none;
+}
+
+.cal-month-view .cal-cell {
+    align-items: center;
+    padding-top: 8px;
+    font-weight: 500;
+}
+
+.cal-month-view .cal-day-cell.cal-today .cal-day-number {
+    font-size: 12px;
+}
+
+.cal-month-view .cal-open-day-events {
+    display: none;
+}

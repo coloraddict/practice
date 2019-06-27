@@ -51,11 +51,11 @@ h5 {
 }
 
 .container {
-    background: #ECEFF1;
+    background: #f4f9fd;
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 0 5px;
+    padding: 10px;
 }
 
 .card {

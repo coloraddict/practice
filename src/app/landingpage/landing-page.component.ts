@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import * as math from 'mathjs'
 import { DrugList } from '../components/drug-list.component';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -43,7 +44,7 @@ export class LandingPage implements OnInit{
 		"labels": ["Doctor", "Distributor"]
 	}
 
-    constructor(private dataService: DataService){
+    constructor(private dataService: DataService, private router: Router){
     }
 
     toggleDropdown($event){
@@ -139,6 +140,10 @@ export class LandingPage implements OnInit{
 
 	showSelectedList(){
 		
+	}
+
+	loadScheduler(){
+		this.router.navigateByUrl('/schedule');
 	}
 
 }
