@@ -2,14 +2,40 @@
 <div class="overlay" *ngIf="ddOverlay"></div>
 <div class="container">
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-xs-12">
             &nbsp;
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-xs-12">
-            <button class="btn-fat btn-primary" (click)="loadScheduler()">Tour Planner</button>
+            <ul class="services">
+                <li (click)="loadScheduler()">
+                    <img src="assets/images/timeline_64.png" alt="">
+                    <h3 class="service-name">Tour Planner</h3>
+                </li>
+                <li (click)="loadDoctorsList()">
+                    <img src="assets/images/my_doctors_64.png" alt="">
+                    <h3 class="service-name">My Doctors</h3>
+                </li>
+                <li>
+                    <img src="assets/images/campaign_64.png" alt="">
+                    <h3 class="service-name">Campaign</h3>
+                </li>
+                <li>
+                    <img src="assets/images/reports_64.png" alt="">
+                    <h3 class="service-name">Reports</h3>
+                </li>
+                <li>
+                    <img src="assets/images/my_chemist_64.png" alt="">
+                    <h3 class="service-name">My Chemist</h3>
+                </li>
+                <li>
+                    <img src="assets/images/settings_64.png" alt="">
+                    <h3 class="service-name">User Settings</h3>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
         </div>
     </div>
 
@@ -52,8 +78,9 @@
             </div>
         </div>
     </div> -->
+    
 </div>
-
+<footer></footer>
 <div class="modal-popup" id="modal-popup" (click)="hidePopup($event)">
     <div class="modal-content">
         <button (click)="increment()"><img src="assets/images/plus.png" alt=""></button>

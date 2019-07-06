@@ -90,13 +90,13 @@ export class LandingPage implements OnInit{
 	decrement(){}
 
 	ngOnInit(){
-		let area = this.dataService.getArea().subscribe(
-			(data) => {
-				this.locations = data['records'];
-				console.log(this.locations);
-			},
-			error => console.log(error)
-		);
+		// let area = this.dataService.getArea().subscribe(
+		// 	(data) => {
+		// 		this.locations = data['records'];
+		// 		console.log(this.locations);
+		// 	},
+		// 	error => console.log(error)
+		// );
 	}
 	
 	openModal($event){
@@ -144,6 +144,10 @@ export class LandingPage implements OnInit{
 
 	loadScheduler(){
 		this.router.navigateByUrl('/schedule');
+	}
+
+	loadDoctorsList(){
+		this.router.navigateByUrl('/doctors_list');
 	}
 
 }

@@ -14,6 +14,8 @@ import { Scheduler } from './schedule/schedule';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { RadiobuttonComponent } from './components/radiobutton/radiobutton.component';
 import { Header } from './components/header/header.component';
+import { Footer } from './components/footer/footer.component';
+import { DoctorsList } from './doctors_list/doctors.list';
 import 'hammerjs';
 
 import {
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'login-page', component: LoginPage },
   { path: 'landing-page', component: LandingPage },
   { path: 'schedule', component: Scheduler },
+  { path: 'doctors_list', component: DoctorsList },
   { path: '**', redirectTo: 'login-page' }  
 ];
 
@@ -41,7 +44,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 
 @NgModule({
   declarations: [ 
-    LoginPage, LandingPage, DrugList, DropdownComponent, RadiobuttonComponent, Scheduler, Header
+    LoginPage, LandingPage, DrugList, DropdownComponent, RadiobuttonComponent, Scheduler, Header, Footer, DoctorsList
   ],
   imports: [
     RouterModule.forRoot(routes), CommonModule, HttpClientModule, FormsModule,

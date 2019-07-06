@@ -105,6 +105,29 @@
     float: right;
 }
 
+.services li {
+    display: block;
+    width: 120px;
+    min-height: 158px;
+    text-align: center;
+    padding: 20px;
+    margin: 5px;
+    background: #fff;
+    float: left;
+    border:1px solid rgba(0,0,0,0.1);
+}
+
+.services li h3.service-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #00a1e5;
+    margin: 10px 0;
+}
+
+.services li p {
+    font-weight: 300;
+}
+
 /* .dropdown-component {
     background: #3140a0;
     color: #fff;
