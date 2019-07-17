@@ -15,10 +15,10 @@ constructor(private dataService: DataService){
 }
 
 ngOnInit(){
-    let drugsobj = this.dataService.getDoctors().subscribe(
+    let doctorsobj = this.dataService.getDoctors('EVERSHINE').subscribe(
         (data) => {
             this.doctors = data['records'];
-            console.log(this.doctors[0].med_name);
+            console.log(this.doctors);
         },
         error => console.log(error)
     );

@@ -1,4 +1,18 @@
-<div class="row">
+<header></header>
+<div class="card medicines">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li *ngFor="let medicine of medicine_list">
+                        <a href="javascript:void(0);"> {{ medicine.med_name }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
     <div class="col-xs-12 content tab-container" id="tab-content">
         <div class="card">
             <div class="tab-component">
@@ -25,7 +39,7 @@
             <div class="tab-content">
                 <section id="tab1-content" class="active">
                     <ul class="list" id="list">
-                        <!-- <li *ngFor="let drug of list; let i = index;"><a [attr.data-index]="i" href="javascript:void(0);" (click)="notify($event)" hm-tap="onHammer">{{drug.name}}<span class="quantity">{{drug.quantity}}</span></a></li> -->
+                         <li *ngFor="let drug of list; let i = index;"><a [attr.data-index]="i" href="javascript:void(0);" (click)="notify($event)" hm-tap="onHammer">{{drug.name}}<span class="quantity">{{drug.quantity}}</span></a></li>
                         <li *ngFor="let drug of drugs; let i = index;">
                             <a [attr.data-index]="i" href="javascript:void(0);" class="drugname" (click)="populateDrugs()">
                                 {{ (i+1) +'. ' + drug.med_name}}<span class="quantity">{{quantity}}</span>
@@ -38,29 +52,29 @@
                     </ul>
                 </section>  
                 <section id="tab2-content">
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list> -->
+                   <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
+                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list>
                 </section>
                 <section id="tab3-content">
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list> -->
+                   <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
+                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list>
                 </section>
                 <section id="tab4-content">
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list> -->
+                    <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
+                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list>
                 </section>
                 <section id="tab5-content">
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list> -->
+                     <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
+                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list>
                 </section>
                 <section id="tab6-content">
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
-                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list> -->
+                     <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="openModal($event)"></drug-list> -->
+                    <!-- <drug-list [list]="drugs" (result)="displayTotal($event)" (openModifier)="modifyCount($event)"></drug-list>
                 </section>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 

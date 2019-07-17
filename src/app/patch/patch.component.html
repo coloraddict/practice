@@ -1,0 +1,129 @@
+<header></header>
+<div class="container query-preparation">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" *ngIf="noRecords">
+                <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        No patches found for {{selectedArea}}. Please select a different area.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Which area are you going to cover today?</label>
+                    <input type="text" value={{selectedArea}} class="field left" placeholder="Select Area" readonly (click)="openArea(area)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openArea(area)"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Which patch would you target today?</label>
+                    <input type="text" value={{selectedPatch}} class="field left" placeholder="Select Patch" readonly (click)="openPatch(patch)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openPatch(patch)"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Select a Doctor on your selected patch</label>
+                    <input type="text" value={{selectedDoctor}} class="field left" placeholder="Select Doctor" readonly (click)="openDoctor(doctor)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openDoctor(doctor)"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary btn-submit" (click)="loadMedicines()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+<ul>
+    <li *ngFor="let patch of patches">{{patch.patch}}</li>
+</ul>
+</div>
+
+<ng-template #area let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Select Area</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list">
+            <li *ngFor="let area of area_list; let i=index;">
+                <a href="javascript:void(0);" (click)="selectArea(area, i); modal.dismiss('Cross click')"> {{ area.area_name }}</a>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>
+
+<ng-template #patch let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Select Patch</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul class="list">
+          <li *ngFor="let patch of patch_list; let i=index;">
+             <a href="javascript:void(0);" (click)="selectPatch(patch, i); modal.dismiss('Cross click')"> {{ patch.patch_name }}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>
+
+<ng-template #doctor let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Select Doctor</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list">
+            <li *ngFor="let doctor of doctor_list">
+                <a href="javascript:void(0);" (click)="selectDoctor(doctor.doctor_name, modal);"> {{ doctor.doctor_name }}</a>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>
+
+<ng-template #medicine let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Units</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list">
+            <li *ngFor="let medicine of medicine_list">
+                <a href="javascript:void(0);"> {{ medicine.med_name }}</a>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>

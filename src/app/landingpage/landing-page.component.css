@@ -107,8 +107,8 @@
 
 .services li {
     display: block;
-    width: 120px;
-    min-height: 158px;
+    width: 30%;
+    height: 135px;
     text-align: center;
     padding: 20px;
     margin: 5px;
@@ -118,9 +118,9 @@
 }
 
 .services li h3.service-name {
-    font-size: 15px;
-    font-weight: 500;
-    color: #00a1e5;
+    font-size: 12px;
+    font-weight: 300;
+    color: #424242;
     margin: 10px 0;
 }
 

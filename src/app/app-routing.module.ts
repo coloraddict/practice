@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginPage } from './login/login-page.component';
 import { LandingPage } from './landingpage/landing-page.component';
@@ -16,6 +17,7 @@ import { RadiobuttonComponent } from './components/radiobutton/radiobutton.compo
 import { Header } from './components/header/header.component';
 import { Footer } from './components/footer/footer.component';
 import { DoctorsList } from './doctors_list/doctors.list';
+import { PatchList } from './patch/patch.component';
 import 'hammerjs';
 
 import {
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'landing-page', component: LandingPage },
   { path: 'schedule', component: Scheduler },
   { path: 'doctors_list', component: DoctorsList },
+  { path: 'patch_list', component: PatchList },
+  { path: 'drug_list', component: DrugList },
   { path: '**', redirectTo: 'login-page' }  
 ];
 
@@ -44,7 +48,7 @@ export class MyHammerConfig extends HammerGestureConfig  {
 
 @NgModule({
   declarations: [ 
-    LoginPage, LandingPage, DrugList, DropdownComponent, RadiobuttonComponent, Scheduler, Header, Footer, DoctorsList
+    LoginPage, LandingPage, DrugList, DropdownComponent, RadiobuttonComponent, Scheduler, Header, Footer, DoctorsList, PatchList
   ],
   imports: [
     RouterModule.forRoot(routes), CommonModule, HttpClientModule, FormsModule,
@@ -52,7 +56,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    NgbModule
   ],
   exports: [RouterModule],
   providers: [{

@@ -13,7 +13,6 @@ export class DataService implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
         request = request.clone({
             setHeaders: {
               'Authorization': `bc5ac4d4704afce664db8bafa6449e77`
@@ -23,18 +22,30 @@ export class DataService implements HttpInterceptor {
     }
 
     getMedicines(){
-        return this.http.get(this.baseUrl + 'medicines');
+        return this.http.get(this.baseUrl + 'medicines/read.php');
     }
 
     getArea(){
-        return this.http.get(this.baseUrl + 'area');
+        return this.http.get(this.baseUrl + 'area/read.php');
     }
 
     getDistributors(item_id){
         return this.http.get(this.baseUrl + 'distributors/102' + item_id);
     }
 
-    getDoctors(){
-        return this.http.get(this.baseUrl + 'doctors');
+    getDoctors(patch){
+        return this.http.get(this.baseUrl + 'doctors/read.php?patch=' + patch);
+    }
+
+    getPatches(area_id){
+        return this.http.get(this.baseUrl + 'patch/read.php?area_id=' + area_id);
+    }
+
+    loginuser(obj){
+        const headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Content-Type', 'application/json');
+        // let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        return this.http.get(this.baseUrl + 'login.php', obj);
     }
 }

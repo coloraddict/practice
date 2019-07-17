@@ -65,3 +65,23 @@
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+  .medicines.card {
+    height: 90vh;
+    overflow: auto;
+  }
+
+  .medicines.card li a {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #424242;
+    text-decoration: none;
+    outline: none;
+    padding: 3px 5px;
+  }
+
+  .medicines.card li a:hover {
+    background: #999;
+    color: #fff;
+  }

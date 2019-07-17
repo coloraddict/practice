@@ -50,6 +50,14 @@ h5 {
     font-size: 10px;  
 }
 
+.fa {
+    color: #fff;
+}
+
+input[type=text], input[type=password] {
+    outline: none;
+}
+
 .container {
     background: #f4f9fd;
     height: 100%;
@@ -63,7 +71,7 @@ h5 {
     min-height: 20px;
     padding: 10px;
     background: #fff;
-    box-shadow: 0 4px 8px -3px rgba(0,0,0,0.5);
+    /* box-shadow: 0 4px 8px -3px rgba(0,0,0,0.5); */
     border-radius: 5px;
     transition: 0.3s;
 }
@@ -143,6 +151,26 @@ section.hide {
 
 .tab-content li a span {
     float: right;
+}
+
+/* MODAL POPUP */
+.modal-dialog .modal-header {
+    padding: 10px 15px;
+}
+
+.modal-dialog .modal-title {
+    font-size: 13px;
+    font-weight: 500;
+} 
+
+.modal-backdrop.show {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.modal-header .close {
+    outline: none;
+    padding: 10px;
 }
 
 .clearfix {

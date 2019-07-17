@@ -150,4 +150,8 @@ export class LandingPage implements OnInit{
 		this.router.navigateByUrl('/doctors_list');
 	}
 
+	loadPatchList(){
+		this.router.navigateByUrl('/patch_list');
+	}
+
 }
