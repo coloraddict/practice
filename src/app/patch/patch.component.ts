@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgbModal, ModalDismissReasons, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ViewChild, ElementRef, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
  
 @Component({
     selector: 'patch-list',
     templateUrl: 'patch.component.html',
-    styleUrls: ['patch.component.css']
+    styleUrls: ['patch.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class PatchList {
 
@@ -18,10 +19,19 @@ export class PatchList {
     selectedArea:string = '';
     selectedPatch:string = '';
     selectedDoctor:string = '';
+    selectedMedicine:string ='';
+    selectedIndex;
     noRecords:boolean = false;
     modalReference;
+    activeModal: NgbActiveModal;
+    currentJustify = 'justified';
+    currentUnit = 0;
+    medicine_obj = {};
+    tmp_list = [];
+    pre_sales_list = [];
+    post_sales_list = [];
 
-    @ViewChild('medicine') elem:ElementRef;
+    @ViewChild('medicineList') templateRef: TemplateRef<any>;
     
     constructor(private dataService: DataService, private modalService: NgbModal, private router: Router){
     
@@ -35,6 +45,14 @@ export class PatchList {
             },
             error => console.log(error)
         )
+
+        let medicineobj = this.dataService.getMedicines().subscribe(
+      (data) => {
+          this.medicine_list = data['records'];
+          // this.activeModal = this.modalService.open(this.templateRef,{ ariaLabelledBy: "modal-basic-title", backdrop: "static", keyboard: false, windowClass: "modal-container" });
+      },
+          error => console.log(error)
+      )
     }
     
     openArea(content) {
@@ -62,12 +80,17 @@ export class PatchList {
     }
 
     openMedicine(content) {
-      console.log(content);
       this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
+    }
+
+    addMedicineUnit(content, p_medicine, p_index){
+      this.activeModal = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', windowClass: 'medicine-unit-selection'});
+      this.selectedMedicine = p_medicine;
+      this.selectedIndex = p_index;
     }
     
     private getDismissReason(reason: any): string {
@@ -94,12 +117,9 @@ export class PatchList {
                 this.noRecords = false;
                 this.selectedArea = '';
               }, 3000)
-              console.log(data['message']);
             }
           },
           error => { 
-            console.log('hehehe');
-            console.log(error);
           }
         );
     }
@@ -110,7 +130,6 @@ export class PatchList {
       let doctorobj = this.dataService.getDoctors(p_patch.patch_name).subscribe(
         (data) => {
             this.doctor_list = data['records'];
-            // console.log(this.doctor_list);
         },
         error => console.log(error)
       );
@@ -122,20 +141,26 @@ export class PatchList {
       let medicineobj = this.dataService.getMedicines().subscribe(
         (data) => {
             this.medicine_list = data['records'];
-            setTimeout( () => {
-              this.openMedicine(this.elem.nativeElement);
-            }, 2000);
-            
-            console.log(this.medicine_list);
+            // this.activeModal = this.modalService.open(this.templateRef,{ ariaLabelledBy: "modal-basic-title", backdrop: "static", keyboard: false, windowClass: "modal-container" });
         },
         error => console.log(error)
       );
       m.dismiss('Cross click');
-      // this.modalReference.close();
     }
 
     loadMedicines(){
       this.router.navigateByUrl('/drug_list');
+    }
+
+    displayUnit($event){
+       this.currentUnit = $event;
+       this.medicine_list[this.selectedIndex].med_unit = this.currentUnit;
+    }
+
+    collectUnitData($event){
+      this.pre_sales_list = this.medicine_list.filter( (data, value) => {
+        return data.med_unit > 0;
+      });
     }
 
 }

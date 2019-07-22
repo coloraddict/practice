@@ -18,6 +18,7 @@ import { Header } from './components/header/header.component';
 import { Footer } from './components/footer/footer.component';
 import { DoctorsList } from './doctors_list/doctors.list';
 import { PatchList } from './patch/patch.component';
+import { RangeSlider } from './components/range-slider/range-slider.component';
 import 'hammerjs';
 
 import {
@@ -48,22 +49,39 @@ export class MyHammerConfig extends HammerGestureConfig  {
 
 @NgModule({
   declarations: [ 
-    LoginPage, LandingPage, DrugList, DropdownComponent, RadiobuttonComponent, Scheduler, Header, Footer, DoctorsList, PatchList
+    LoginPage, 
+    LandingPage, 
+    DrugList, 
+    DropdownComponent, 
+    RadiobuttonComponent, 
+    Scheduler, 
+    Header, 
+    Footer, 
+    DoctorsList, 
+    PatchList, 
+    RangeSlider
   ],
   imports: [
-    RouterModule.forRoot(routes), CommonModule, HttpClientModule, FormsModule,
+    RouterModule.forRoot(routes), 
+    CommonModule, 
+    HttpClientModule, 
+    FormsModule,
     FlatpickrModule.forRoot(),
+    NgbModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule
+   
   ],
   exports: [RouterModule],
   providers: [{
     // hammer instantion with custom config
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig ,
-  }]
+  }],
+  entryComponents: [
+    
+  ]
 })
 export class AppRoutingModule { }

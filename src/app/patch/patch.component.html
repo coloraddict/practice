@@ -9,6 +9,7 @@
                     </div>
                 </div>
             </div>
+            <p style="height: 5px;"></p>
             <div class="row">
                 <div class="col">
                     <label for="">Which area are you going to cover today?</label>
@@ -16,9 +17,7 @@
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openArea(area)"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">&nbsp;</div>
-            </div>
+            <p style="height: 0;"></p>
             <div class="row">
                 <div class="col">
                     <label for="">Which patch would you target today?</label>
@@ -26,9 +25,7 @@
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openPatch(patch)"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">&nbsp;</div>
-            </div>
+            <p style="height: 0;"></p>
             <div class="row">
                 <div class="col">
                     <label for="">Select a Doctor on your selected patch</label>
@@ -36,14 +33,86 @@
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openDoctor(doctor)"></span>
                 </div>
             </div>
+            
+            <p style="height: 15px;"></p>
             <div class="row">
-                <div class="col">&nbsp;</div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <button class="btn btn-primary btn-submit" (click)="loadMedicines()">Submit</button>
+                <div class="col">
+                    <ngb-tabset [justify]="currentJustify">
+                        <ngb-tab title="Pre Sales">
+                            <ng-template ngbTabContent>
+                                <div class="tab-content">
+                                    <!-- <label><b>Medicines sold per week</b></label> -->
+                                    <button class="btn btn-primary btn-add" (click)="openMedicine(medicineList)">Add</button>
+
+                                    <ul class="selected_medicine_list">
+                                        <li>
+                                            <div><b>Medicine</b></div>
+                                            <div style="text-align: center;"><b>Price</b></div>
+                                            <div style="text-align: right;"><b>Action</b></div>
+                                        </li>
+                                        <li *ngFor="let item of pre_sales_list">
+                                            <div>{{ item.med_name }}</div>
+                                            <div style="text-align: center;">{{ item.med_unit }}</div>
+                                            <div style="text-align: right;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li>
+                                        <!-- <li>
+                                            <div>Cachet</div>
+                                            <div style="text-align: center;">20</div>
+                                            <div style="text-align: right;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>Lysoflam Syrup</div>
+                                            <div style="text-align: center;">20</div>
+                                            <div style="text-align: right;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>Cachet</div>
+                                            <div style="text-align: center;">20</div>
+                                            <div style="text-align: right;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li> -->
+                                    </ul>  
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab>
+                            <ng-template ngbTabTitle>Post Sales</ng-template>
+                            <ng-template ngbTabContent>
+                            <div class="tab-content">
+                                <button class="btn btn-primary btn-add" (click)="openMedicine(medicineList)">Add</button>
+                            </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="RCPA">
+                            <ng-template ngbTabContent>
+                            <div class="tab-content">
+                                <button class="btn btn-primary btn-add" (click)="openMedicine(medicineList)">Add</button>
+                            </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
                 </div>
             </div>
+            <!-- <div class="row">
+                <div class="col">&nbsp;</div>
+            </div> -->
+            <!-- <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary btn-submit">Submit</button>
+                </div>
+            </div> -->
+            <button class="btn btn-primary btn-submit">Submit</button>
         </div>
     </div>
    
@@ -66,9 +135,6 @@
             </li>
         </ul>
     </div>
-    <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div> -->
 </ng-template>
 
 <ng-template #patch let-modal>
@@ -85,9 +151,6 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div> -->
 </ng-template>
 
 <ng-template #doctor let-modal>
@@ -104,12 +167,26 @@
             </li>
         </ul>
     </div>
-    <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div> -->
 </ng-template>
 
-<ng-template #medicine let-modal>
+<ng-template #medicineList let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Medicine List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list medicine">
+            <li *ngFor="let medicine of medicine_list; let i=index;">
+                <a href="javascript:void(0);" (click)="addMedicineUnit(medicineModal, medicine, i)"> {{ medicine.med_name }}</a>
+                <span class="unit">{{medicine.med_unit}}</span>
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #medicineModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Add Units</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -117,13 +194,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <ul class="list">
-            <li *ngFor="let medicine of medicine_list">
-                <a href="javascript:void(0);"> {{ medicine.med_name }}</a>
-            </li>
-        </ul>
+        <div class="medicine-name">{{selectedMedicine.med_name}}</div>
+        <range-slider (onUnitUpdate)='displayUnit($event)' (onUnitClose)="collectUnitData($event)"></range-slider>
     </div>
-    <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div> -->
 </ng-template>
