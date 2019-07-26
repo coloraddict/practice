@@ -6,13 +6,13 @@ body {
 .login-page {
     display: block;
     min-height: 100vh;
-    background: rgba(49,64,160,1);
-    background: -moz-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(49,64,160,1)), color-stop(100%, rgba(0,151,136,1)));
-    background: -webkit-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
-    background: -o-linear-gradient(top,     rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
-    background: -ms-linear-gradient(top, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
-    background: linear-gradient(to bottom, rgba(49,64,160,1) 0%, rgba(0,151,136,1) 100%);
+    background: rgba(0,123,255,1);
+    background: -moz-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(100,255,218,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,123,255,1)), color-stop(100%, rgba(100,255,218,1)));
+    background: -webkit-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(100,255,218,1) 100%);
+    background: -o-linear-gradient(top,     rgba(0,123,255,1) 0%, rgba(100,255,218,1) 100%);
+    background: -ms-linear-gradient(top, rgba(0,123,255,1) 0%, rgba(100,255,218,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,123,255,1)     0%, rgba(100,255,218,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3140a0', endColorstr='#009788', GradientType=0 );
 }
 
@@ -37,7 +37,9 @@ body {
 .brand h1 {
     text-align: center;
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
     color: #fff;
 }
 
@@ -61,11 +63,14 @@ img {
 
 input {
     width: 90%;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
     text-align: left;
     padding: 10px;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #cccccc38;
+    border-bottom: 1px solid rgba(0,123,255,.2);
 }
 
 .user_credential {
@@ -84,24 +89,24 @@ button {
 }
 
 .loginButton {
-	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	background-color:#fafafa;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	border:1px solid #566963;
+	/* -moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+	box-shadow: inset 0px 1px 3px 0px #91b8b3; */
+	background-color: #fafafa;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 2px;
+	/* border:1px solid #566963; */
     display: block;
-    max-width: 100px;
-	cursor:pointer;
-	color:#313fa0;
-	font-family:Arial;
-	font-size:15px;
-	font-weight: 700;
-	padding:10px 20px;
-    text-decoration:none;
-    margin: 15px auto;
+    width: 50%;
+	cursor: pointer;
+	color: #313fa0;
+	font-family: Roboto;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 5px 20px;
+    text-decoration: none;
+    margin: 15px auto 5px auto;
 }
 .loginButton:hover {
 	background-color:#e8e7e7;
@@ -109,6 +114,13 @@ button {
 .loginButton:active {
 	position:relative;
 	top:1px;
+}
+
+.forgot {
+    font-size: 10px;
+    color: #fff;
+    text-align: right;
+    margin-right: 100px;
 }
 
 

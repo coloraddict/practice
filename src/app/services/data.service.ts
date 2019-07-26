@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class DataService implements HttpInterceptor {
-    baseUrl: string = "http://localhost/medrep/";
+    baseUrl: string = "http://ajay.byethost31.com/medrep/";
+    // baseUrl: string = "http://localhost/medrep/";
 
     constructor(private http: HttpClient){
         
