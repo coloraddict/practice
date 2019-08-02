@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation,Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'range-slider',
@@ -7,13 +7,19 @@ import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/cor
     encapsulation: ViewEncapsulation.None
 })
 
-export class RangeSlider {
+export class RangeSlider implements OnInit {
     
+    counter = 0;
+    @Input() unit = this.counter;
     @Output() onUnitUpdate = new EventEmitter();
     @Output() onUnitClose = new EventEmitter();
-    counter = 0;
-
+    
+    constructor(){
+        
+    }
+ 
     ngOnInit(){
+        console.log('RangeSlide ' + this.unit);
         var range = document.getElementsByClassName('input-range')[0];
   	    var value = document.getElementsByClassName('range-value')[0];
 
@@ -22,8 +28,8 @@ export class RangeSlider {
         var _this = this;
 	    range.addEventListener('input', function() {
             value.innerHTML = this.value;
-            this.counter = this.value;
-            _this.onUnitUpdate.emit(this.counter);
+            _this.counter = this.value;
+            _this.onUnitUpdate.emit(_this.counter);
 	    });
 
         range.addEventListener('change', function() {

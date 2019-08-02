@@ -4,7 +4,7 @@ html, body { height: 100%; overflow: hidden; font-family: Roboto; }
 body { margin: 0; padding:0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
-    font-family: Roboto!important;
+    font-family: roboto!important;
 }
 
 .no-padding {
@@ -180,10 +180,16 @@ section.hide {
     clear: both;
 }
 
-@media only screen and (min-width: 500px) {
+/* @media only screen and (max-width: 768px) {
     .container {
         width: 500px;
         margin: 0 auto;
     }
    
+} */
+
+@media only screen and (max-width: 1920px) and (min-width: 500px) {
+    .container {
+        width: 500px!important;
+    }
 }

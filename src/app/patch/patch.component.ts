@@ -19,7 +19,7 @@ export class PatchList {
     selectedArea:string = '';
     selectedPatch:string = '';
     selectedDoctor:string = '';
-    selectedMedicine:string ='';
+    selectedMedicine:any;
     selectedIndex;
     noRecords:boolean = false;
     modalReference;
@@ -27,9 +27,14 @@ export class PatchList {
     currentJustify = 'justified';
     currentUnit = 0;
     medicine_obj = {};
-    tmp_list = [];
+    pre_tmp_list = [];
     pre_sales_list = [];
     post_sales_list = [];
+    post_tmp_list = [];
+    isAreaSelected:boolean = false;
+    isPatchSelected:boolean = false;
+    isDoctorSelected:boolean = false;
+    isProductSelected:boolean = false;
 
     @ViewChild('medicineList') templateRef: TemplateRef<any>;
     
@@ -45,14 +50,6 @@ export class PatchList {
             },
             error => console.log(error)
         )
-
-        let medicineobj = this.dataService.getMedicines().subscribe(
-      (data) => {
-          this.medicine_list = data['records'];
-          // this.activeModal = this.modalService.open(this.templateRef,{ ariaLabelledBy: "modal-basic-title", backdrop: "static", keyboard: false, windowClass: "modal-container" });
-      },
-          error => console.log(error)
-      )
     }
     
     openArea(content) {
@@ -91,6 +88,7 @@ export class PatchList {
       this.activeModal = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', windowClass: 'medicine-unit-selection'});
       this.selectedMedicine = p_medicine;
       this.selectedIndex = p_index;
+      console.log(this.selectedMedicine);
     }
     
     private getDismissReason(reason: any): string {
@@ -105,7 +103,7 @@ export class PatchList {
 
     selectArea(p_area, id){
         this.selectedArea = p_area.area_name;
-
+        this.isAreaSelected = true;
         let patchesobj = this.dataService.getPatches(p_area.area_id).subscribe(
           (data) => {
             if(data['records']){
@@ -116,7 +114,8 @@ export class PatchList {
               setTimeout( () => {
                 this.noRecords = false;
                 this.selectedArea = '';
-              }, 3000)
+                this.isAreaSelected = false;
+              }, 1500)
             }
           },
           error => { 
@@ -126,7 +125,7 @@ export class PatchList {
 
     selectPatch(p_patch, id) {
       this.selectedPatch = p_patch.patch_name;
-
+      this.isPatchSelected = true;
       let doctorobj = this.dataService.getDoctors(p_patch.patch_name).subscribe(
         (data) => {
             this.doctor_list = data['records'];
@@ -137,11 +136,12 @@ export class PatchList {
 
     selectDoctor(p_doctorname, m) {
       this.selectedDoctor = p_doctorname;
-      
+      this.isDoctorSelected = true;
       let medicineobj = this.dataService.getMedicines().subscribe(
         (data) => {
             this.medicine_list = data['records'];
-            // this.activeModal = this.modalService.open(this.templateRef,{ ariaLabelledBy: "modal-basic-title", backdrop: "static", keyboard: false, windowClass: "modal-container" });
+            this.pre_tmp_list = JSON.parse(JSON.stringify(this.medicine_list));
+            this.post_tmp_list = JSON.parse(JSON.stringify(this.medicine_list));
         },
         error => console.log(error)
       );
@@ -152,13 +152,25 @@ export class PatchList {
       this.router.navigateByUrl('/drug_list');
     }
 
-    displayUnit($event){
+    displayPreSalesUnit($event){
        this.currentUnit = $event;
-       this.medicine_list[this.selectedIndex].med_unit = this.currentUnit;
+       this.pre_tmp_list[this.selectedIndex].med_unit = this.currentUnit;
     }
 
-    collectUnitData($event){
-      this.pre_sales_list = this.medicine_list.filter( (data, value) => {
+    collectPreSalesUnit($event){
+      this.pre_sales_list = this.pre_tmp_list.filter( (data, value) => {
+        return data.med_unit > 0;
+      });
+      this.isProductSelected = this.pre_sales_list.length>0;
+    }
+
+    displayPostSalesUnit($event){
+       this.currentUnit = $event;
+       this.post_tmp_list[this.selectedIndex].med_unit = this.currentUnit;
+    }
+
+    collectPostSalesUnit($event){
+      this.post_sales_list = this.post_tmp_list.filter( (data, value) => {
         return data.med_unit > 0;
       });
     }
