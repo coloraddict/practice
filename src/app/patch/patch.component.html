@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col">
                     <label for="">Area</label>
-                    <input type="text" value={{selectedArea}} class="field left" placeholder="Select Area" readonly (click)="openArea(area)">
+                    <input type="text" value={{selectedArea.name}} class="field left" placeholder="Select Area" readonly (click)="openArea(area)">
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openArea(area)"></span>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="row" [ngClass]="{'disabled': isAreaSelected==false}">
                 <div class="col">
                     <label for="">Patch</label>
-                    <input type="text" value={{selectedPatch}} class="field left" placeholder="Select Patch" readonly (click)="openPatch(patch)">
+                    <input type="text" value={{selectedPatch.name}} class="field left" placeholder="Select Patch" readonly (click)="openPatch(patch)">
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openPatch(patch)"></span>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="row" [ngClass]="{'disabled': isPatchSelected==false}">
                 <div class="col">
                     <label for="">Doctor</label>
-                    <input type="text" value={{selectedDoctor}} class="field left" placeholder="Select Doctor" readonly (click)="openDoctor(doctor)">
+                    <input type="text" value={{selectedDoctor.name}} class="field left" placeholder="Select Doctor" readonly (click)="openDoctor(doctor)">
                     <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openDoctor(doctor)"></span>
                 </div>
             </div>
@@ -49,16 +49,16 @@
                                     </div>
                                     <ul class="selected_medicine_list">
                                         <li *ngFor="let item of pre_sales_list">
-                                            <div>{{ item.med_name }}</div>
+                                            <div>{{ item.name }}</div>
                                             <div style="text-align: center;"></div>
                                             <div style="text-align: center;">{{ item.med_unit }}</div>
                                             <div style="text-align: center;">
-                                                <span><img src="assets/images/pencil.png"></span>
-                                                <span><img src="assets/images/trash.png"></span>
+                                                <span><!--img src="assets/images/pencil.png"--><i class="fas fa-pencil-alt"></i></span>&nbsp;&nbsp;
+                                                <span><!--img src="assets/images/trash.png"--><i class="fas fa-trash-alt"></i></span>
                                             </div>
                                         </li>
                                     </ul> 
-                                    <button class="btn btn-primary btn-add" (click)="openMedicine(preSalesList)">Add</button> 
+                                    <button class="btn btn-primary btn-add" (click)="openMedicine(preSalesList)">ADD</button> 
                                 </div>
                             </ng-template>
                         </ngb-tab>
@@ -73,16 +73,16 @@
                                     </div>
                                     <ul class="selected_medicine_list">
                                         <li *ngFor="let item of post_sales_list">
-                                            <div>{{ item.med_name }}</div>
+                                            <div>{{ item.name }}</div>
                                             <div style="text-align: center;"></div>
                                             <div style="text-align: center;">{{ item.med_unit }}</div>
                                             <div style="text-align: center;">
-                                                <span><img src="assets/images/pencil.png"></span>
-                                                <span><img src="assets/images/trash.png"></span>
+                                                <span><!--img src="assets/images/pencil.png"--><i class="fas fa-pencil-alt"></i></span>&nbsp;&nbsp;
+                                                <span><!--img src="assets/images/trash.png"--><i class="fas fa-trash-alt"></i></span>
                                             </div>
                                         </li>
                                     </ul> 
-                                    <button class="btn btn-primary btn-add" (click)="openMedicine(postSalesList)">Add</button> 
+                                    <button class="btn btn-primary btn-add" (click)="openMedicine(postSalesList)">ADD</button> 
                             </div>
                             </ng-template>
                         </ngb-tab>
@@ -105,12 +105,12 @@
                     <button class="btn btn-primary btn-submit">Submit</button>
                 </div>
             </div> -->
-            <button class="btn btn-primary btn-submit" [ngClass]="{'disabled': isProductSelected==false}">Submit</button>
+            <button class="btn btn-primary btn-submit" [ngClass]="{'disabled': isProductSelected==false}">APPEND TO REPORT</button>
         </div>
     </div>
    
 <ul>
-    <li *ngFor="let patch of patches">{{patch.patch}}</li>
+    <li *ngFor="let patch of patch_list">{{patch.patch}}</li>
 </ul>
 </div>
 
@@ -124,7 +124,7 @@
     <div class="modal-body">
         <ul class="list">
             <li *ngFor="let area of area_list; let i=index;">
-                <a href="javascript:void(0);" (click)="selectArea(area, i); modal.dismiss('Cross click')"> {{ area.area_name }}</a>
+                <a href="javascript:void(0);" (click)="selectArea(area, i); modal.dismiss('Cross click')"> {{ area.name }}</a>
             </li>
         </ul>
     </div>
@@ -140,7 +140,7 @@
     <div class="modal-body">
       <ul class="list">
           <li *ngFor="let patch of patch_list; let i=index;">
-             <a href="javascript:void(0);" (click)="selectPatch(patch, i); modal.dismiss('Cross click')"> {{ patch.patch_name }}</a>
+             <a href="javascript:void(0);" (click)="selectPatch(patch, i); modal.dismiss('Cross click')"> {{ patch.name }}</a>
         </li>
       </ul>
     </div>
@@ -156,7 +156,7 @@
     <div class="modal-body">
         <ul class="list">
             <li *ngFor="let doctor of doctor_list">
-                <a href="javascript:void(0);" (click)="selectDoctor(doctor.doctor_name, modal);"> {{ doctor.doctor_name }}</a>
+                <a href="javascript:void(0);" (click)="selectDoctor(doctor, modal);"> {{ doctor.name }}</a>
             </li>
         </ul>
     </div>
@@ -189,8 +189,8 @@
     <div class="modal-body">
         <ul class="list medicine">
             <li *ngFor="let medicine of pre_tmp_list; let i=index;">
-                <a href="javascript:void(0);" (click)="addMedicineUnit(PreSalesModal, medicine, i)"> {{ medicine.med_name }}</a>
-                <span class="unit">{{medicine.med_unit}}</span>
+                <a href="javascript:void(0);" (click)="addMedicineUnit(PreSalesModal, medicine, i)" [ngClass]="{'selected-medicine': medicine.med_unit>0}"> {{ medicine.name }}</a>
+                <span class="unit" [ngClass]="{'selected-medicine': medicine.med_unit>0}">{{medicine.med_unit}}</span>
             </li>
         </ul>
     </div>
@@ -206,8 +206,8 @@
     <div class="modal-body">
         <ul class="list medicine">
             <li *ngFor="let medicine of post_tmp_list; let i=index;">
-                <a href="javascript:void(0);" (click)="addMedicineUnit(PostSalesModal, medicine, i)"> {{ medicine.med_name }}</a>
-                <span class="unit">{{medicine.med_unit}}</span>
+                <a href="javascript:void(0);" (click)="addMedicineUnit(PostSalesModal, medicine, i)" [ngClass]="{'selected-medicine': medicine.med_unit>0}"> {{ medicine.name }}</a>
+                <span class="unit" [ngClass]="{'selected-medicine': medicine.med_unit>0}">{{medicine.med_unit}}</span>
             </li>
         </ul>
     </div>
@@ -221,7 +221,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="medicine-name">{{selectedMedicine.med_name}}</div>
+        <div class="medicine-name">{{selectedMedicine.name}}</div>
         <span class="medicine-price">{{selectedMedicine.med_unit}}</span>
         <range-slider (onUnitUpdate)='displayPreSalesUnit($event)' (onUnitClose)="collectPreSalesUnit($event)" [unit]="selectedMedicine.med_unit"></range-slider>
         <div class="duration">

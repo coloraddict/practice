@@ -24,6 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/assets/css/fonts.css",
               "src/assets/css/bootstrap.min.css",
               "node_modules/angular-calendar/css/angular-calendar.css"
             ],

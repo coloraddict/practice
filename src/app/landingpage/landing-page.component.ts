@@ -33,7 +33,6 @@ export class LandingPage implements OnInit{
 	location_label: string = 'Select Location';
 	doctor_label: string = 'Select Doctor';
 
-
 	count;
 
 	area: any;
@@ -45,6 +44,7 @@ export class LandingPage implements OnInit{
 	}
 
     constructor(private dataService: DataService, private router: Router){
+		
     }
 
     toggleDropdown($event){
@@ -90,6 +90,7 @@ export class LandingPage implements OnInit{
 	decrement(){}
 
 	ngOnInit(){
+		console.log("here");		
 		// let area = this.dataService.getArea().subscribe(
 		// 	(data) => {
 		// 		this.locations = data['records'];
@@ -97,6 +98,10 @@ export class LandingPage implements OnInit{
 		// 	},
 		// 	error => console.log(error)
 		// );
+		// this.dataService.getDb().subscribe(res => {
+		// 	console.log("here");			
+		// 	console.log(res);			
+		// })
 	}
 	
 	openModal($event){

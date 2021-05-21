@@ -27,11 +27,13 @@
 }
 
 .query-preparation input[type=text]{
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
-    color: #027efd;
+    /* color: #027efd; */
+    color: #000;
     border: none;
-    border-bottom: 1px solid #027efd;
+    /* border-bottom: 1px solid #027efd; */
+    border-bottom: 1px solid #000;
     background: transparent;
     outline: none;
 }
@@ -119,9 +121,10 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 .query-preparation .btn-add {
     width: 20%;
     font-size: 14px;
-    font-weight: 400;
-    color: #027efd;
-    background: transparent;
+    font-weight: 500;
+    /* color: #027efd; */
+    color: #FFF;
+    /* background: transparent; */
     border: 1px solid #027efd;
     position: absolute;
     bottom: -40px;
@@ -173,7 +176,8 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     justify-content: space-between;
     font-size: 12px;
     font-weight: 500;
-    color: #646464;
+    /* color: #646464; */
+    color: #000;
     position: relative;
 }
 
@@ -212,14 +216,15 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     justify-content: space-between;
     font-size: 12px;
     font-weight: 500;
-    color: #646464;
+    /* color: #646464; */
+    color: #000;
     border-bottom: 1px solid #eee;
     position: relative;
 }
 
 .selected_medicine_list li div {
     font-family: roboto;
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 400;
     flex-basis: 5%;
     flex-grow: 1;
@@ -261,7 +266,8 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 
 
 .nav-tabs {
-    border: 1px solid #027efd;
+    /* border: 1px solid #027efd; */
+    border: 1px solid #000;
 }
 
 .nav-tabs .nav-item {
@@ -276,14 +282,16 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 }
 
 .nav-justified .nav-item {
-    background: #027efd;
+    /* background: #027efd; */
+    background: #999;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     background: #fff;
     border-radius: 0;
-    font-weight: 700;
-    color: #027efd;
+    /* font-weight: 700; */
+    /* color: #141516; */
+    color: #000;
     border: none;
 }
 
@@ -367,6 +375,17 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     transform: scale(1);
 }
 
+.fa-pencil-alt {
+    color: #00f;
+}
+
+.fa-trash-alt {
+    color: #f00;
+}
+
+.selected-medicine {
+    color: #00f!important;
+}
 
 
 @media only screen and (min-width: 768px) {
@@ -374,21 +393,21 @@ input[type=text]::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         font-size: 16px;
     }
     .query-preparation input[type=text] {
-        font-size: 14px;
+        /* font-size: 14px; */
         font-weight: 500;
     }
 
     .nav-tabs .nav-item a {
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 400;
     }
 
     .selected_medicine_list_header b {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
     }
 
     .selected_medicine_list li div {
-        font-size: 12px;
+        font-size: 16x;
     }
 }

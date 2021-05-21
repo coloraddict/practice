@@ -14,11 +14,11 @@ export class PatchList {
     closeResult: string;
     patch_list:any = [];
     area_list:any = [];
-    doctor_list = [];
-    medicine_list = [];
-    selectedArea:string = '';
-    selectedPatch:string = '';
-    selectedDoctor:string = '';
+    doctor_list:any = [];
+    medicine_list:any = [];
+    selectedArea:any = [];
+    selectedPatch:any = [];
+    selectedDoctor:any = [];
     selectedMedicine:any;
     selectedIndex;
     noRecords:boolean = false;
@@ -45,8 +45,7 @@ export class PatchList {
     ngOnInit(){
         let area_obj = this.dataService.getArea().subscribe(
             (data) => {
-                this.area_list = data['records'];
-                // console.log(this.area_list);
+                this.area_list = data;
             },
             error => console.log(error)
         )
@@ -102,18 +101,18 @@ export class PatchList {
     }
 
     selectArea(p_area, id){
-        this.selectedArea = p_area.area_name;
+        this.selectedArea = p_area;
         this.isAreaSelected = true;
-        let patchesobj = this.dataService.getPatches(p_area.area_id).subscribe(
+        let patchesobj = this.dataService.getPatches(p_area.id).subscribe(
           (data) => {
-            if(data['records']){
-              this.patch_list = data['records'];
+            if(data){
+              this.patch_list = data;
             }
             if(data['message']) {
               this.noRecords = true;
               setTimeout( () => {
                 this.noRecords = false;
-                this.selectedArea = '';
+                // this.selectedArea = '';
                 this.isAreaSelected = false;
               }, 1500)
             }
@@ -124,22 +123,24 @@ export class PatchList {
     }
 
     selectPatch(p_patch, id) {
-      this.selectedPatch = p_patch.patch_name;
+      this.selectedPatch = p_patch;
       this.isPatchSelected = true;
-      let doctorobj = this.dataService.getDoctors(p_patch.patch_name).subscribe(
+      let doctorobj = this.dataService.getDoctors(p_patch.id, this.selectedArea.id).subscribe(
         (data) => {
-            this.doctor_list = data['records'];
+            this.doctor_list = data;
+            console.log(data);
+            
         },
         error => console.log(error)
       );
     }
 
-    selectDoctor(p_doctorname, m) {
-      this.selectedDoctor = p_doctorname;
+    selectDoctor(p_doctor, m) {
+      this.selectedDoctor = p_doctor;
       this.isDoctorSelected = true;
       let medicineobj = this.dataService.getMedicines().subscribe(
         (data) => {
-            this.medicine_list = data['records'];
+            this.medicine_list = data;
             this.pre_tmp_list = JSON.parse(JSON.stringify(this.medicine_list));
             this.post_tmp_list = JSON.parse(JSON.stringify(this.medicine_list));
         },

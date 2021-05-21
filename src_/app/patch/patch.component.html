@@ -1,0 +1,269 @@
+<header></header>
+<div class="container query-preparation">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" *ngIf="noRecords">
+                <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        No patches found for {{selectedArea}}. Please select a different area.
+                    </div>
+                </div>
+            </div>
+            <p style="height: 5px; margin: 0;"></p>
+            <div class="row">
+                <div class="col">
+                    <label for="">Area</label>
+                    <input type="text" value={{selectedArea.name}} class="field left" placeholder="Select Area" readonly (click)="openArea(area)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openArea(area)"></span>
+                </div>
+            </div>
+            <p style="height: 0;"></p>
+            <div class="row" [ngClass]="{'disabled': isAreaSelected==false}">
+                <div class="col">
+                    <label for="">Patch</label>
+                    <input type="text" value={{selectedPatch.name}} class="field left" placeholder="Select Patch" readonly (click)="openPatch(patch)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openPatch(patch)"></span>
+                </div>
+            </div>
+            <p style="height: 0;"></p>
+            <div class="row" [ngClass]="{'disabled': isPatchSelected==false}">
+                <div class="col">
+                    <label for="">Doctor</label>
+                    <input type="text" value={{selectedDoctor.name}} class="field left" placeholder="Select Doctor" readonly (click)="openDoctor(doctor)">
+                    <span class="pop-out"><img src="assets/images/pop-out.png" alt="" (click)="openDoctor(doctor)"></span>
+                </div>
+            </div>
+            
+            <p style="height: 15px;"></p>
+            <div class="row" [ngClass]="{'disabled': isDoctorSelected==false}">
+                <div class="col">
+                    <ngb-tabset [justify]="currentJustify">
+                        <ngb-tab title="Pre Sales">
+                            <ng-template ngbTabContent>
+                                <div class="tab-content">
+                                    <div class="selected_medicine_list_header">
+                                        <div><b>Product</b></div>
+                                        <div style="text-align: center;"><b>Basis</b></div>
+                                        <div style="text-align: center;"><b>Units</b></div>
+                                        <div style="text-align: right;"><b>Action</b></div>
+                                    </div>
+                                    <ul class="selected_medicine_list">
+                                        <li *ngFor="let item of pre_sales_list">
+                                            <div>{{ item.name }}</div>
+                                            <div style="text-align: center;"></div>
+                                            <div style="text-align: center;">{{ item.med_unit }}</div>
+                                            <div style="text-align: center;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li>
+                                    </ul> 
+                                    <button class="btn btn-primary btn-add" (click)="openMedicine(preSalesList)">Add</button> 
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Post Sales">
+                            <ng-template ngbTabContent>
+                            <div class="tab-content">
+                                <div class="selected_medicine_list_header">
+                                        <div><b>Medicine</b></div>
+                                        <div style="text-align: center;"><b>Basis</b></div>
+                                        <div style="text-align: center;"><b>Units</b></div>
+                                        <div style="text-align: right;"><b>Action</b></div>
+                                    </div>
+                                    <ul class="selected_medicine_list">
+                                        <li *ngFor="let item of post_sales_list">
+                                            <div>{{ item.name }}</div>
+                                            <div style="text-align: center;"></div>
+                                            <div style="text-align: center;">{{ item.med_unit }}</div>
+                                            <div style="text-align: center;">
+                                                <span><img src="assets/images/pencil.png"></span>
+                                                <span><img src="assets/images/trash.png"></span>
+                                            </div>
+                                        </li>
+                                    </ul> 
+                                    <button class="btn btn-primary btn-add" (click)="openMedicine(postSalesList)">Add</button> 
+                            </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="RCPA">
+                            <ng-template ngbTabContent>
+                            <div class="tab-content">
+                                <textarea class="post-sales-content" rows="4" cols="100" style="width:100%;"></textarea>
+                                <!-- <button class="btn btn-primary btn-add" (click)="openMedicine(medicineList)">Add</button> -->
+                            </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col">&nbsp;</div>
+            </div> -->
+            <!-- <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary btn-submit">Submit</button>
+                </div>
+            </div> -->
+            <button class="btn btn-primary btn-submit" [ngClass]="{'disabled': isProductSelected==false}">Submit</button>
+        </div>
+    </div>
+   
+<ul>
+    <li *ngFor="let patch of patches">{{patch.patch}}</li>
+</ul>
+</div>
+
+<ng-template #area let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Select Area</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list">
+            <li *ngFor="let area of area_list; let i=index;">
+                <a href="javascript:void(0);" (click)="selectArea(area, i); modal.dismiss('Cross click')"> {{ area.name }}</a>
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #patch let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Select Patch</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul class="list">
+          <li *ngFor="let patch of patch_list; let i=index;">
+             <a href="javascript:void(0);" (click)="selectPatch(patch, i); modal.dismiss('Cross click')"> {{ patch.name }}</a>
+        </li>
+      </ul>
+    </div>
+</ng-template>
+
+<ng-template #doctor let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Select Doctor</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list">
+            <li *ngFor="let doctor of doctor_list">
+                <a href="javascript:void(0);" (click)="selectDoctor(doctor, modal);"> {{ doctor.name }}</a>
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+<!-- <ng-template #medicineList let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Medicine List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list medicine">
+            <li *ngFor="let medicine of medicine_list; let i=index;">
+                <a href="javascript:void(0);" (click)="addMedicineUnit(medicineModal, medicine, i)"> {{ medicine.med_name }}</a>
+                <span class="unit">{{medicine.med_unit}}</span>
+            </li>
+        </ul>
+    </div>
+</ng-template> -->
+
+<ng-template #preSalesList let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Medicine List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list medicine">
+            <li *ngFor="let medicine of pre_tmp_list; let i=index;">
+                <a href="javascript:void(0);" (click)="addMedicineUnit(PreSalesModal, medicine, i)"> {{ medicine.name }}</a>
+                <span class="unit">{{medicine.med_unit}}</span>
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #postSalesList let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Medicine List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul class="list medicine">
+            <li *ngFor="let medicine of post_tmp_list; let i=index;">
+                <a href="javascript:void(0);" (click)="addMedicineUnit(PostSalesModal, medicine, i)"> {{ medicine.name }}</a>
+                <span class="unit">{{medicine.med_unit}}</span>
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #PreSalesModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Units</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="medicine-name">{{selectedMedicine.name}}</div>
+        <span class="medicine-price">{{selectedMedicine.med_unit}}</span>
+        <range-slider (onUnitUpdate)='displayPreSalesUnit($event)' (onUnitClose)="collectPreSalesUnit($event)" [unit]="selectedMedicine.med_unit"></range-slider>
+        <div class="duration">
+            <div>
+                <input type="radio" id="test1" name="radio-group" checked>
+                <label for="test1">Daily</label>
+            </div>
+            <div>
+                <input type="radio" id="test2" name="radio-group">
+                <label for="test2">Weekly</label>
+            </div>
+            <div>
+                <input type="radio" id="test3" name="radio-group">
+                <label for="test3">Monthly</label>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #PostSalesModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Units</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="medicine-name">{{selectedMedicine.med_name}}</div>
+        <range-slider (onUnitUpdate)='displayPostSalesUnit($event)' (onUnitClose)="collectPostSalesUnit($event)"></range-slider>
+        <div class="duration">
+            <div>
+                <input type="radio" id="test1" name="radio-group" checked>
+                <label for="test1">Daily</label>
+            </div>
+            <div>
+                <input type="radio" id="test2" name="radio-group">
+                <label for="test2">Weekly</label>
+            </div>
+            <div>
+                <input type="radio" id="test3" name="radio-group">
+                <label for="test3">Monthly</label>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,480 @@
+{
+  "area": [
+    {
+      "id": "A-101",
+      "name": "Bandra"
+    },
+    {
+      "id": "A-102",
+      "name": "Santacruz"
+    },
+    {
+      "id": "A-103",
+      "name": "Andheri"
+    },
+    {
+      "id": "A-104",
+      "name": "Jogeshwari"
+    },
+    {
+      "id": "A-105",
+      "name": "Goregaon"
+    },
+    {
+      "id": "A-106",
+      "name": "Kandivli"
+    },
+    {
+      "id": "A-107",
+      "name": "Malad"
+    },
+    {
+      "id": "A-108",
+      "name": "Borivli"
+    },
+    {
+      "id": "A-109",
+      "name": "Dahisar"
+    },
+    {
+      "id": "A-110",
+      "name": "Mira Road"
+    },
+    {
+      "id": "A-111",
+      "name": "Bhayendar"
+    },
+    {
+      "id": "A-112",
+      "name": "Vasai"
+    },
+    {
+      "id": "A-113",
+      "name": "Nalasopara"
+    },
+    {
+      "id": "A-114",
+      "name": "Virar"
+    }
+  ],
+  "patch": [
+    {
+      "id": "P-101",
+      "area_id": "A-101",
+      "name": "Tulinj Road"
+    },
+    {
+      "id": "P-102",
+      "area_id": "A-101",
+      "name": "Achole Road"
+    },
+    {
+      "id": "P-103",
+      "area_id": "A-101",
+      "name": "Gala Nagar"
+    },
+    {
+      "id": "P-104",
+      "area_id": "A-101",
+      "name": "More Gaon"
+    },
+    {
+      "id": "P-105",
+      "area_id": "A-102",
+      "name": "Alkapuri"
+    },
+    {
+      "id": "P-106",
+      "area_id": "A-102",
+      "name": "Tarapur Road"
+    },
+    {
+      "id": "P-107",
+      "area_id": "A-102",
+      "name": "Charroti"
+    },
+    {
+      "id": "P-108",
+      "area_id": "A-102",
+      "name": "Navapur"
+    },
+    {
+      "id": "P-109",
+      "area_id": "A-102",
+      "name": "Vikram Gadh"
+    },
+    {
+      "id": "P-110",
+      "area_id": "A-102",
+      "name": "Oswal"
+    },
+    {
+      "id": "P-111",
+      "area_id": "A-102",
+      "name": "Santosh Bhawan"
+    }
+  ],
+  "doctor": [
+    {
+      "id": "D-101",
+      "area_id": "A-101",
+      "patch_id": "P-101",
+      "name": "R. R. Deshpande"
+    },
+    {
+      "id": "D-102",
+      "area_id": "A-101",
+      "patch_id": "P-101",
+      "name": "Veena Thanvi"
+    },
+    {
+      "id": "D-103",
+      "area_id": "A-101",
+      "patch_id": "P-101",
+      "name": "Prashant Mahasker"
+    },
+    {
+      "id": "D-104",
+      "area_id": "A-101",
+      "patch_id": "P-101",
+      "name": "R. O. Gupta"
+    },
+    {
+      "id": "D-104",
+      "area_id": "A-101",
+      "patch_id": "P-102",
+      "name": "Mukund Shinde"
+    },
+    {
+      "id": "D-105",
+      "area_id": "A-101",
+      "patch_id": "P-102",
+      "name": "Shaheda Wani"
+    },
+    {
+      "id": "D-106",
+      "area_id": "A-101",
+      "patch_id": "P-102",
+      "name": "Sanjay Manjalkar"
+    },
+    {
+      "id": "D-107",
+      "area_id": "A-101",
+      "patch_id": "P-102",
+      "name": "Shashi Bala"
+    },
+    {
+      "id": "D-108",
+      "area_id": "A-101",
+      "patch_id": "P-102",
+      "name": "Khalid Raza"
+    },
+    {
+      "id": "D-109",
+      "area_id": "A-102",
+      "patch_id": "P-101",
+      "name": "Ritesh Jain"
+    },
+    {
+      "id": "D-110",
+      "area_id": "A-102",
+      "patch_id": "P-101",
+      "name": "Nisit Sharma"
+    },
+    {
+      "id": "D-111",
+      "area_id": "A-102",
+      "patch_id": "P-101",
+      "name": "Ashish Borkar"
+    },
+    {
+      "id": "D-111",
+      "area_id": "A-102",
+      "patch_id": "P-101",
+      "name": "Santosh Mourya"
+    },
+    {
+      "id": "D-112",
+      "area_id": "A-102",
+      "patch_id": "P-101",
+      "name": "Murtuja Hirani"
+    }
+  ],
+  "medicine": [
+    {
+      "id": "M-101",
+      "name": "CACEF 100 MG DT Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-102",
+      "name": "CACEF 200 MG Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-103",
+      "name": "CACEF CV 100 MG Dry Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-104",
+      "name": "CACEF CV 200 MG Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-105",
+      "name": "CACEF CV 50 MG Dry Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-106",
+      "name": "CACEF Dry Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-107",
+      "name": "CADBE Drops",
+      "med_unit": 0
+    },
+    {
+      "id": "M-108",
+      "name": "CADBE Syrup (Food)",
+      "med_unit": 0
+    },
+    {
+      "id": "M-109",
+      "name": "CADBE Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-110",
+      "name": "CAVIT PM Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-111",
+      "name": "CRYSTACAL SOFGEL",
+      "med_unit": 0
+    },
+    {
+      "id": "M-112",
+      "name": "CRYSTACAL Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-113",
+      "name": "SPID",
+      "med_unit": 0
+    },
+    {
+      "id": "M-114",
+      "name": "DYNORO-D Caps",
+      "med_unit": 0
+    },
+    {
+      "id": "M-115",
+      "name": "EMITINO Inj",
+      "med_unit": 0
+    },
+    {
+      "id": "M-116",
+      "name": "EMITINO Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-117",
+      "name": "EMITINO Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-118",
+      "name": "I-UP Drops",
+      "med_unit": 0
+    },
+    {
+      "id": "M-119",
+      "name": "I-UP Inj",
+      "med_unit": 0
+    },
+    {
+      "id": "M-120",
+      "name": "I-UP Suspension",
+      "med_unit": 0
+    },
+    {
+      "id": "M-121",
+      "name": "I-UP Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-122",
+      "name": "LACTOCLAAV 1.2 GM Inj",
+      "med_unit": 0
+    },
+    {
+      "id": "M-123",
+      "name": "LACTOCLAAV 375 mg Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-124",
+      "name": "LACTOCLAAV 625 mg Tab",
+      "med_unit": 0
+    },
+    {
+      "id": "M-125",
+      "name": "LACTOCLAAV Dry Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-126",
+      "name": "LACTOCLAAV DS Dry Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-127",
+      "name": "LACTOCLAAV Kid Tablets",
+      "med_unit": 0
+    },
+    {
+      "id": "M-128",
+      "name": "LYSOFLAM FORTE Tabs",
+      "med_unit": 0
+    },
+    {
+      "id": "M-129",
+      "name": "LYSOFLAM AQ Inj",
+      "med_unit": 0
+    },
+    {
+      "id": "M-130",
+      "name": "LYSOFLAM Gel 30G",
+      "med_unit": 0
+    },
+    {
+      "id": "M-131",
+      "name": "LYSOFLAM MR Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-132",
+      "name": "LYSOFLAM Tablets",
+      "med_unit": 0
+    },
+    {
+      "id": "M-133",
+      "name": "LYSOSPAS Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-134",
+      "name": "NE 200 MG Caps",
+      "med_unit": 0
+    },
+    {
+      "id": "M-135",
+      "name": "NE 400 MG Caps",
+      "med_unit": 0
+    },
+    {
+      "id": "M-136",
+      "name": "NE Powder",
+      "med_unit": 0
+    },
+    {
+      "id": "M-137",
+      "name": "NE-C Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-138",
+      "name": "NE-FORTE Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-139",
+      "name": "NEW CAVIT Suspension",
+      "med_unit": 0
+    },
+    {
+      "id": "M-140",
+      "name": "NEW CAVIT Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-141",
+      "name": "NEW VIVADASE Syrup",
+      "med_unit": 0
+    },
+    {
+      "id": "M-142",
+      "name": "PNZ - 40 Mg Inj",
+      "med_unit": 0
+    },
+    {
+      "id": "M-143",
+      "name": "PNZ - 40 Mg Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-144",
+      "name": "PNZ - 40 Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-145",
+      "name": "PNZ - D Capsule",
+      "med_unit": 0
+    },
+    {
+      "id": "M-146",
+      "name": "TOPDOM Capsule",
+      "med_unit": 0
+    },
+    {
+      "id": "M-147",
+      "name": "TRAXOF 100 Mg DT Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-148",
+      "name": "TRAXOF Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-149",
+      "name": "TRAXOL CV 100 Mg Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-150",
+      "name": "TRAXOL CV 200 Mg Tablet",
+      "med_unit": 0
+    },
+    {
+      "id": "M-151",
+      "name": "TRAXOL Inj 250 Mg",
+      "med_unit": 0
+    },
+    {
+      "id": "M-152",
+      "name": "TRAXOL Inj 500 Mg",
+      "med_unit": 0
+    },
+    {
+      "id": "M-153",
+      "name": "TRAXOL Inj 1000 Mg",
+      "med_unit": 0
+    },
+    {
+      "id": "M-154",
+      "name": "TRAXOL Inj 125 Mg",
+      "med_unit": 0
+    },
+    {
+      "id": "M-155",
+      "name": "TRAXOL S Inj 1500 Mg",
+      "med_unit": 0
+    }
+  ]
+}
